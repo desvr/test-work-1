@@ -10,10 +10,11 @@ class ConcertTicketsStrategy extends BaseItemStrategy
      * @param  Item  $item
      */
     public function handle(Item $item): void {
-        $factorQualityStep = 1;
-        if ($item->sell_in > 5 && $item->sell_in <= 10) {
+        if ($item->sell_in > 10) {
+            $factorQualityStep = 1;
+        } elseif ($item->sell_in > 5) {
             $factorQualityStep = 2;
-        } elseif ($item->sell_in > 0 && $item->sell_in <= 5) {
+        } elseif ($item->sell_in > 0) {
             $factorQualityStep = 3;
         }
 
